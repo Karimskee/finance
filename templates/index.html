@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    C$50 Finance
+{% endblock %}
+
+{% block main %}
+
+    <h1 class="display-1">User summary</h1>
+
+    <h class="display-6">Balance: {{ balance | usd }} | Grand Total: {{ grand_total | usd }}</h>
+
+
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Symbol</th>
+        <th scope="col">Shares</th>
+        <th scope="col">Stock Price</th>
+        <th scope="col">Total Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in stocks %}
+            <tr>
+            <th scope="row">{{ stock.symbol }}</th>
+            <td>{{ stock.shares }}</td>
+            <td>{{ stock.price | usd }}</td>
+            <td>{{ stock.total | usd }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <h1 class="display-1">Results for {{ symbol }}:</h1>
+
+    <p class="lead">
+        {{ name }}'s current stock price: {{ price }}
+    </p>
+
+{% endblock %}

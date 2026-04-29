@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <h1 class="display-1">Transactions History</h1>
+
+    <table class="table">
+    <thead>
+        <tr>
+        {% for key in history[0].keys() %}
+            <th scope="col">{{ key }}</th>
+        {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in history %}
+        <tr>
+            {% for value in row.values() %}
+                <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}
