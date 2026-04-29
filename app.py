@@ -6,6 +6,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from helpers import apology, login_required, lookup, usd
 from datetime import datetime
 
+import os
+
 # Configure application
 app = Flask(__name__)
 
@@ -18,7 +20,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///finance.db")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(BASE_DIR, "finance.db")
+
+db = SQL(f"sqlite:///{db_path}")
 
 
 @app.after_request
